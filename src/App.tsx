@@ -48,11 +48,11 @@ export default function Portfolio() {
       color: "violet"
     },
     {
-      title: "Operations Efficiency Dashboard",
+      title: "Charity Website Management",
       year: "2024",
-      category: "Business Intelligence",
-      description: "Automated analytics tools at UPS that increased productivity by 100%. Built custom reporting dashboards tracking KPIs and operational metrics in real-time.",
-      tags: ["Python", "Automation", "Analytics"],
+      category: "Web Development",
+      description: "Maintained and optimized a nonprofit WordPress website, supporting fundraising and community outreach through reliable performance, improved usability, and structured content updates. Implemented SEO and analytics tracking to increase site traffic and engagement.",
+      tags: ["HTML/CSS", "WordPress", "Analytics"],
       link: "#",
       color: "emerald"
     },
