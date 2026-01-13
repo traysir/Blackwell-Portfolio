@@ -371,7 +371,7 @@ console.log(bayden.specialties);
 
           <div className="flex justify-center gap-6 mb-12">
             <a 
-              href="https://github.com/baydenblackwell" 
+              href="https://github.com/traysir" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
@@ -379,7 +379,7 @@ console.log(bayden.specialties);
               <Github size={24} className="group-hover:scale-110 transition-transform" />
             </a>
             <a 
-              href="https://linkedin.com/in/baydenblackwell" 
+              href="https://www.linkedin.com/in/btbwell/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
@@ -387,7 +387,7 @@ console.log(bayden.specialties);
               <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
             </a>
             <a 
-              href="mailto:btbwellbusiness@gmail.com"
+              href="mailto:bayden.blackwell@gmail.com"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
             >
               <Mail size={24} className="group-hover:scale-110 transition-transform" />
@@ -395,7 +395,7 @@ console.log(bayden.specialties);
           </div>
 
           <div className="space-y-2 text-neutral-900 font-mono text-sm">
-            <p>btbwellbusiness@gmail.com</p>
+            <p>bayden.blackwell@gmail.com</p>
             <p>(706) 833-4143</p>
           </div>
         </div>
