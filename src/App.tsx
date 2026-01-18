@@ -6,7 +6,7 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState('');
-
+  const [iconSurprised, setIconSurprised] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -36,6 +36,11 @@ export default function Portfolio() {
       clearInterval(timer);
     };
   }, []);
+
+  const handleIconClick = () => {
+    setIconSurprised(true);
+    setTimeout(() => setIconSurprised(false), 600);
+  };
 
   // Fixed projects array - removed duplicate, proper links
   const projects = [
@@ -127,9 +132,10 @@ export default function Portfolio() {
             </div>
 
             <img 
-              src="/logos/icon.png" 
+              src={iconSurprised ? "/logos/icon-surprised.png" : "/logos/icon.png"} 
               alt="icon"
-              className="h-20 w-20 object-contain hover:scale-110 transition-transform"
+              onClick={handleIconClick}
+              className="h-20 w-20 object-contain hover:scale-110 transition-all duration-300 cursor-pointer"
             />
 
             <button 
