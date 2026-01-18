@@ -126,6 +126,12 @@ export default function Portfolio() {
               </a>
             </div>
 
+            <img 
+              src="/logos/icon.png" 
+              alt="icon"
+              className="h-6 w-6 object-contain"
+            />
+
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden"
