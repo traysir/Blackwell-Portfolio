@@ -135,7 +135,7 @@ export default function Portfolio() {
               src={iconSurprised ? "/logos/icon-surprised.png" : "/logos/icon.png"} 
               alt="icon"
               onClick={handleIconClick}
-              className="h-20 w-20 object-contain hover:scale-110 transition-all duration-300 cursor-pointer"
+              className="h-28 w-28 object-contain hover:scale-110 transition-all duration-300 cursor-pointer"
             />
 
             <button 
