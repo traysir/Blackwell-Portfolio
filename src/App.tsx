@@ -80,9 +80,9 @@ export default function Portfolio() {
   const skills = ["Python", "SQL", "Power BI", "Tableau", "Excel", "AWS", "Linux", "Git", "Data Viz", "Statistics"];
 
   const experience = [
-    { company: "ADP", role: "Technical Analyst", period: "2024—Now", stat: "Top Performer" },
-    { company: "UPS", role: "Operations Manager", period: "2023—2024", stat: "+100% Data Efficiency" },
-    { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics" }
+    { company: "ADP", role: "Technical Analyst", period: "2024—Now", stat: "Top Performer", logo: "" },
+    { company: "UPS", role: "Operations Manager", period: "2023—2024", stat: "+100% Data Efficiency", logo: "" },
+    { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics", logo: "" }
   ];
 
   return (
@@ -246,7 +246,15 @@ console.log(bayden.specialties);
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <h3 className="text-2xl font-bold">{job.company}</h3>
+                      {job.logo ? (
+                        <img 
+                          src={job.logo} 
+                          alt={job.company}
+                          className="h-8 w-auto grayscale group-hover:grayscale-0 transition-all duration-300"
+                        />
+                      ) : (
+                        <h3 className="text-2xl font-bold">{job.company}</h3>
+                      )}
                       <span className="px-3 py-1 bg-emerald-100 group-hover:bg-emerald-600 text-emerald-900 group-hover:text-neutral-50 text-xs font-medium transition-colors">
                         {job.stat}
                       </span>
