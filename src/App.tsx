@@ -129,7 +129,7 @@ export default function Portfolio() {
             <img 
               src="/logos/icon.png" 
               alt="icon"
-              className="h-6 w-6 object-contain"
+              className="h-12 w-12 object-contain hover:scale-110 transition-transform"
             />
 
             <button 
