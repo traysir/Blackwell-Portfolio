@@ -184,7 +184,7 @@ export default function Portfolio() {
             left: `${mousePosition.x}px`,
             top: `${mousePosition.y}px`,
             transform: 'translate(-50%, -50%)',
-            transition: 'transform 0.15s ease-out'
+            transition: 'left 0.08s linear, top 0.08s linear'
           }}
           aria-hidden="true"
         />
