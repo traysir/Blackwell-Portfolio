@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ArrowUpRight, Terminal, Sparkles, Coffee } from 'lucide-react';
 
 export default function Portfolio() {
@@ -6,27 +6,14 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState('');
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    
-    mediaQuery.addEventListener('change', handleMotionChange);
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     
     const handleMouseMove = (e: MouseEvent) => {
-      if (!prefersReducedMotion) {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      }
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     const updateTime = () => {
@@ -46,17 +33,11 @@ export default function Portfolio() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
-      mediaQuery.removeEventListener('change', handleMotionChange);
       clearInterval(timer);
     };
-  }, [prefersReducedMotion]);
-
-  // Close mobile menu when clicking a link
-  const handleNavClick = useCallback(() => {
-    setMobileMenuOpen(false);
   }, []);
 
-  // Fixed projects array - removed duplicate, added proper links
+  // Fixed projects array - removed duplicate, proper links
   const projects = [
     {
       title: "College Football Analytics",
@@ -65,7 +46,6 @@ export default function Portfolio() {
       description: "EPA-based prediction system with real-time data pipeline and statistical modeling. Built interactive dashboard generating spreads, odds, and win probabilities with 85% accuracy.",
       tags: ["Python", "Machine Learning", "Data Viz"],
       link: "https://github.com/traysir",
-      hasLink: true,
       color: "violet"
     },
     {
@@ -75,7 +55,6 @@ export default function Portfolio() {
       description: "Maintained and optimized a nonprofit WordPress website, supporting fundraising and community outreach through reliable performance, improved usability, and structured content updates. Implemented SEO and analytics tracking to increase site traffic and engagement.",
       tags: ["HTML/CSS", "WordPress", "Analytics"],
       link: "https://pfcnyc.org/",
-      hasLink: true,
       color: "emerald"
     },
     {
@@ -84,8 +63,7 @@ export default function Portfolio() {
       category: "Cloud Analytics",
       description: "Leveraged AWS analytics tools at Amazon to identify fulfillment trends. Optimized workflows resulting in 15% efficiency improvement through data-driven insights.",
       tags: ["AWS", "Data Analysis", "SQL"],
-      link: null,
-      hasLink: false,
+      link: "https://github.com/traysir",
       color: "amber"
     },
     {
@@ -95,7 +73,6 @@ export default function Portfolio() {
       description: "Rhythm game with real-time audio analysis and beat detection. Features procedural note generation, multiple difficulty levels, and genre-themed visuals. Built with React and Web Audio API.",
       tags: ["JavaScript", "React", "Web Audio API"],
       link: "https://traysir.github.io/Arrowfall/",
-      hasLink: true,
       color: "rose"
     }
   ];
@@ -108,113 +85,40 @@ export default function Portfolio() {
     { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics" }
   ];
 
-  // Project card component - handles links properly
-  const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => {
-    const content = (
-      <div className="relative z-10">
-        <div className="flex justify-between items-start mb-8">
-          <span className="text-xs font-mono text-neutral-500">/{project.category.toLowerCase().replace(' ', '-')}</span>
-          <span className="text-xs font-mono text-neutral-500">{project.year}</span>
-        </div>
-        
-        <h3 className="text-4xl font-bold mb-4 tracking-tight group-hover:text-emerald-400 transition-colors">
-          {project.title}
-        </h3>
-        
-        <p className="text-neutral-400 mb-8 leading-relaxed">
-          {project.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-8">
-          {project.tags.map((tag, i) => (
-            <span key={i} className="text-xs font-mono text-neutral-500 border border-neutral-700 px-3 py-1">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {project.hasLink && (
-          <div className="flex items-center text-sm font-mono group-hover:text-emerald-400 transition-colors">
-            View project
-            <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </div>
-        )}
-        
-        {!project.hasLink && (
-          <div className="flex items-center text-sm font-mono text-neutral-600">
-            Internal project
-          </div>
-        )}
-      </div>
-    );
-
-    const className = "group relative overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-all duration-500 p-12 border border-neutral-700 hover:border-emerald-500";
-
-    if (project.hasLink && project.link) {
-      return (
-        <a
-          key={index}
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={className}
-          aria-label={`View ${project.title} project`}
-        >
-          {content}
-          <div className={`absolute inset-0 bg-${project.color}-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-        </a>
-      );
-    }
-
-    return (
-      <div key={index} className={className}>
-        {content}
-        <div className={`absolute inset-0 bg-${project.color}-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-      </div>
-    );
-  };
-
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 font-mono">
-      {/* Cursor follower - only show if user doesn't prefer reduced motion */}
-      {!prefersReducedMotion && (
-        <div 
-          className="fixed w-6 h-6 border border-neutral-900 rounded-full pointer-events-none z-50 mix-blend-difference hidden md:block"
-          style={{
-            left: `${mousePosition.x}px`,
-            top: `${mousePosition.y}px`,
-            transform: 'translate(-50%, -50%)',
-            transition: 'left 0.08s linear, top 0.08s linear'
-          }}
-          aria-hidden="true"
-        />
-      )}
+      {/* Cursor follower - original behavior */}
+      <div 
+        className="fixed w-6 h-6 border border-neutral-900 rounded-full pointer-events-none z-50 mix-blend-difference"
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+          transform: 'translate(-50%, -50%)',
+          transition: 'transform 0.15s ease-out'
+        }}
+      />
 
       {/* Navigation */}
-      <nav 
-        className={`fixed top-0 w-full z-40 transition-all duration-500 ${scrolled ? 'bg-neutral-50/80 backdrop-blur-2xl border-b border-neutral-200' : 'bg-transparent'}`}
-        role="navigation"
-        aria-label="Main navigation"
-      >
+      <nav className={`fixed top-0 w-full z-40 transition-all duration-500 ${scrolled ? 'bg-neutral-50/80 backdrop-blur-2xl border-b border-neutral-200' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" aria-hidden="true"></div>
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
               <span className="text-sm font-bold tracking-tight">BB/{currentTime}</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
               <a href="#work" className="text-sm hover:text-emerald-600 transition-colors relative group">
                 /work
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300" aria-hidden="true"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a href="#projects" className="text-sm hover:text-emerald-600 transition-colors relative group">
                 /projects
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300" aria-hidden="true"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a href="#skills" className="text-sm hover:text-emerald-600 transition-colors relative group">
                 /skills
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300" aria-hidden="true"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a href="#contact" className="px-4 py-2 bg-neutral-900 text-neutral-50 text-sm hover:bg-emerald-600 transition-all duration-300">
                 say_hello()
@@ -223,49 +127,18 @@ export default function Portfolio() {
 
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2"
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              className="md:hidden"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
 
-          {/* Mobile menu - properly rendered */}
           {mobileMenuOpen && (
-            <div 
-              id="mobile-menu"
-              className="md:hidden mt-6 pb-6 space-y-4 border-t border-neutral-200 pt-6 animate-in slide-in-from-top"
-            >
-              <a 
-                href="#work" 
-                onClick={handleNavClick}
-                className="block text-sm hover:text-emerald-600 transition-colors py-2"
-              >
-                /work
-              </a>
-              <a 
-                href="#projects" 
-                onClick={handleNavClick}
-                className="block text-sm hover:text-emerald-600 transition-colors py-2"
-              >
-                /projects
-              </a>
-              <a 
-                href="#skills" 
-                onClick={handleNavClick}
-                className="block text-sm hover:text-emerald-600 transition-colors py-2"
-              >
-                /skills
-              </a>
-              <a 
-                href="#contact" 
-                onClick={handleNavClick}
-                className="block text-sm hover:text-emerald-600 transition-colors py-2"
-              >
-                /contact
-              </a>
+            <div className="md:hidden mt-6 pb-6 space-y-4 border-t border-neutral-200 pt-6">
+              <a href="#work" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/work</a>
+              <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/projects</a>
+              <a href="#skills" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/skills</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/contact</a>
             </div>
           )}
         </div>
@@ -274,14 +147,14 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center px-6 pt-24 relative overflow-hidden">
         {/* Geometric shapes */}
-        <div className="absolute top-20 right-20 w-64 h-64 border border-neutral-200 rounded-full opacity-50" aria-hidden="true"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 border border-neutral-200 opacity-30 rotate-45" aria-hidden="true"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 border border-neutral-200 rounded-full opacity-50"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 border border-neutral-200 opacity-30 rotate-45"></div>
         
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center space-x-2 mb-8">
-                <Terminal size={16} aria-hidden="true" />
+                <Terminal size={16} />
                 <span className="text-xs uppercase tracking-wider text-neutral-500">Available for work</span>
               </div>
               
@@ -300,17 +173,17 @@ export default function Portfolio() {
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
-                <Coffee size={20} className="text-neutral-400" aria-hidden="true" />
+                <Coffee size={20} className="text-neutral-400" />
                 <span className="text-xs text-neutral-500">Data-driven decisions</span>
-                <span className="text-neutral-300" aria-hidden="true">•</span>
-                <Sparkles size={20} className="text-neutral-400" aria-hidden="true" />
+                <span className="text-neutral-300">•</span>
+                <Sparkles size={20} className="text-neutral-400" />
                 <span className="text-xs text-neutral-500">Numbers tell stories</span>
               </div>
 
               <div className="flex gap-4">
                 <a href="#projects" className="group px-6 py-3 bg-neutral-900 text-neutral-50 text-sm font-medium hover:bg-emerald-600 transition-all duration-300 flex items-center gap-2">
                   View work
-                  <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" aria-hidden="true" />
+                  <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
                 <a href="#contact" className="px-6 py-3 border border-neutral-900 text-sm font-medium hover:bg-neutral-900 hover:text-neutral-50 transition-all duration-300">
                   Get in touch
@@ -320,14 +193,14 @@ export default function Portfolio() {
 
             <div className="hidden md:block">
               <div className="relative">
-                <div className="absolute inset-0 bg-emerald-100 rounded-3xl transform rotate-3" aria-hidden="true"></div>
+                <div className="absolute inset-0 bg-emerald-100 rounded-3xl transform rotate-3"></div>
                 <div className="relative bg-neutral-900 p-8 rounded-3xl text-neutral-50">
-                  <div className="flex items-center gap-2 mb-6" aria-hidden="true">
+                  <div className="flex items-center gap-2 mb-6">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
                   </div>
-                  <pre className="text-xs leading-relaxed text-emerald-400" aria-label="Code snippet showing developer profile">
+                  <pre className="text-xs leading-relaxed text-emerald-400">
 {`const bayden = {
   role: "Data Analyst",
   location: "Atlanta, GA",
@@ -403,7 +276,43 @@ console.log(bayden.specialties);
 
           <div className="grid md:grid-cols-2 gap-1">
             {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
+              <a
+                key={index}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-all duration-500 p-12 border border-neutral-700 hover:border-emerald-500"
+              >
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-8">
+                    <span className="text-xs font-mono text-neutral-500">/{project.category.toLowerCase().replace(' ', '-')}</span>
+                    <span className="text-xs font-mono text-neutral-500">{project.year}</span>
+                  </div>
+                  
+                  <h3 className="text-4xl font-bold mb-4 tracking-tight group-hover:text-emerald-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-neutral-400 mb-8 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="text-xs font-mono text-neutral-500 border border-neutral-700 px-3 py-1">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center text-sm font-mono group-hover:text-emerald-400 transition-colors">
+                    Explore project
+                    <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </div>
+                </div>
+
+                <div className={`absolute inset-0 bg-${project.color}-500 opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              </a>
             ))}
           </div>
         </div>
@@ -425,11 +334,11 @@ console.log(bayden.specialties);
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full" aria-hidden="true"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                   <span className="text-sm">AWS Cloud Practitioner</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-violet-500 rounded-full" aria-hidden="true"></div>
+                  <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
                   <span className="text-sm">Data Analysis with Python</span>
                 </div>
               </div>
@@ -469,39 +378,28 @@ console.log(bayden.specialties);
               target="_blank" 
               rel="noopener noreferrer"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
-              aria-label="Visit GitHub profile"
             >
-              <Github size={24} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <Github size={24} className="group-hover:scale-110 transition-transform" />
             </a>
             <a 
               href="https://www.linkedin.com/in/btbwell/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
-              aria-label="Visit LinkedIn profile"
             >
-              <Linkedin size={24} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
             </a>
             <a 
               href="mailto:bayden.blackwell@gmail.com"
               className="group p-6 bg-neutral-900 text-neutral-50 hover:bg-neutral-800 transition-all duration-300"
-              aria-label="Send email"
             >
-              <Mail size={24} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <Mail size={24} className="group-hover:scale-110 transition-transform" />
             </a>
           </div>
 
           <div className="space-y-2 text-neutral-900 font-mono text-sm">
-            <p>
-              <a href="mailto:bayden.blackwell@gmail.com" className="hover:underline">
-                bayden.blackwell@gmail.com
-              </a>
-            </p>
-            <p>
-              <a href="tel:+17068334143" className="hover:underline">
-                (706) 833-4143
-              </a>
-            </p>
+            <p>bayden.blackwell@gmail.com</p>
+            <p>(706) 833-4143</p>
           </div>
         </div>
       </section>
@@ -510,7 +408,7 @@ console.log(bayden.specialties);
       <footer className="py-12 px-6 border-t border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-neutral-500 font-mono">
-            © {new Date().getFullYear()} Bayden Blackwell — Atlanta, GA
+            © 2026 Bayden Blackwell — Atlanta, GA
           </p>
           <p className="text-xs text-neutral-500 font-mono">
             Designed with intention, built with care
@@ -523,14 +421,6 @@ console.log(bayden.specialties);
           0%, 100% { transform: translate(0px, 0px) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }
           66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
         }
       `}</style>
     </div>
