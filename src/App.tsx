@@ -250,7 +250,7 @@ console.log(bayden.specialties);
                         <img 
                           src={job.logo} 
                           alt={job.company}
-                          className="h-8 w-auto grayscale group-hover:grayscale-0 transition-all duration-300"
+                          className="h-8 w-auto grayscale group-hover:grayscale-0 group-hover:invert transition-all duration-300"
                         />
                       ) : (
                         <h3 className="text-2xl font-bold">{job.company}</h3>
