@@ -82,7 +82,8 @@ export default function Portfolio() {
   const experience = [
     { company: "ADP", role: "Technical Analyst", period: "2024—Now", stat: "Top Performer", logo: "/logos/adp.png" },
     { company: "UPS", role: "Operations Manager", period: "2023—2024", stat: "+100% Data Efficiency", logo: "/logos/ups.png" },
-    { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics", logo: "/logos/amazon.png" }
+    { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics", logo: "/logos/amazon.png" },
+    { company: "IATSE", role: "Technical Operations Specialist", period: "2021—2024", stat: "Production Technology", logo: "/logos/IATSE.png" }
   ];
 
   return (
