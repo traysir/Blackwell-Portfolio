@@ -154,7 +154,6 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center px-6 pt-24 relative overflow-hidden">
         {/* Geometric shapes */}
-        <div className="absolute top-20 right-20 w-64 h-64 border border-neutral-200 rounded-full opacity-50"></div>
         <div className="absolute bottom-20 left-20 w-96 h-96 border border-neutral-200 opacity-30 rotate-45"></div>
         
         <div className="max-w-7xl mx-auto w-full relative z-10">
