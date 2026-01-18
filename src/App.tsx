@@ -53,7 +53,7 @@ export default function Portfolio() {
       category: "Web Development",
       description: "Maintained and optimized a nonprofit WordPress website, supporting fundraising and community outreach through reliable performance, improved usability, and structured content updates. Implemented SEO and analytics tracking to increase site traffic and engagement.",
       tags: ["HTML/CSS", "WordPress", "Analytics"],
-      link: "#",
+      link: "https://pfcnyc.org/",
       color: "emerald"
     },
     {
@@ -71,7 +71,7 @@ export default function Portfolio() {
       category: "Side Project",
       description: "Roguelike dungeon crawler demonstrating algorithmic thinking and problem-solving through procedural generation and game mechanics.",
       tags: ["JavaScript", "Algorithms"],
-      link: "#",
+      link: "https://traysir.github.io/Arrowfall/",
       color: "rose"
     }
   ];
@@ -81,7 +81,7 @@ export default function Portfolio() {
   const experience = [
     { company: "ADP", role: "Technical Analyst", period: "2024—Now", stat: "Top Performer" },
     { company: "UPS", role: "Operations Manager", period: "2023—2024", stat: "+100% Data Efficiency" },
-    { company: "Amazon", role: "Area Manager Intern", period: "2023", stat: "AWS Analytics" }
+    { company: "Amazon", role: "Intern", period: "2023", stat: "AWS Analytics" }
   ];
 
   return (
