@@ -89,53 +89,48 @@ export default function Portfolio() {
     { 
       company: "ADP", 
       role: "Technical Analyst", 
-      period: "2024—Now", 
+      period: "09/2024—Present", 
       stat: "Top Performer",
       logo: "/logos/adp.png",
       duties: [
-        "Built ETL pipelines processing 500K+ payroll records daily using Python and SQL",
-        "Designed Power BI dashboards tracking operational metrics for 50+ stakeholders",
-        "Optimized database queries reducing report generation time by 40%",
-        "Mentored 3 junior analysts on data analysis best practices"
+        "Recognized with Top Performer Award for achieving the highest client success and satisfaction scores across the region",
+        "Manage a client portfolio representing millions in payroll, delivering accurate and timely processing for organizations of varying size and complexity",
+        "Utilize Linux-based tools and scripting to streamline payroll file processing and troubleshoot system issues, improving speed and accuracy for client deliverables",
+        "Build and strengthen client relationships that drive long-term retention and account growth opportunities"
       ]
     },
     { 
       company: "UPS", 
       role: "Operations Manager", 
-      period: "2023—2024", 
+      period: "04/2023—05/2024", 
       stat: "+100% Data Efficiency",
       logo: "/logos/ups.png",
       duties: [
-        "Led team of 8 operators managing 100K+ daily package movements",
-        "Implemented data tracking system increasing visibility by 100%",
-        "Reduced operational errors by 35% through process automation",
-        "Trained 15+ new hires on operational procedures and safety protocols"
+        "Built and deployed custom internal tools that increased employee productivity by 100%, eliminating manual tasks and doubling output efficiency",
+        "Directed daily logistics operations, consistently meeting and exceeding KPIs while streamlining workflows across high-volume shipping and distribution processes"
       ]
     },
     { 
       company: "Amazon", 
-      role: "Intern", 
-      period: "2023", 
+      role: "Area Manager Intern", 
+      period: "06/2023—08/2023", 
       stat: "AWS Analytics",
       logo: "/logos/amazon.png",
       duties: [
-        "Analyzed fulfillment center data using AWS analytics tools",
-        "Identified efficiency bottlenecks resulting in 15% improvement",
-        "Created automated reporting dashboards for warehouse operations",
-        "Collaborated with senior analysts on supply chain optimization"
+        "Implemented workflow optimizations that increased operational efficiency by 15%, reducing bottlenecks and improving team performance",
+        "Leveraged AWS data analytics tools to identify trends and streamline fulfillment workflows, driving measurable gains in speed and accuracy"
       ]
     },
     { 
       company: "IATSE", 
-      role: "Technical Operations Specialist", 
-      period: "2021—2024", 
+      role: "Event Technician", 
+      period: "01/2021—04/2024", 
       stat: "Production Technology",
       logo: "/logos/IATSE.png",
       duties: [
-        "Coordinated technical setup for 100+ live events and productions",
-        "Managed lighting, rigging, and audio-visual systems",
-        "Trained crew members on equipment operation and safety standards",
-        "Troubleshot complex technical issues under high-pressure conditions"
+        "Set up, operated, and dismantled staging, lighting, video, and audio systems for concerts, corporate events, and large-scale productions",
+        "Supported creative teams with lighting design, video playback, and editing, contributing to smooth and visually engaging live experiences",
+        "Troubleshot and resolved live production issues in high-pressure environments, ensuring seamless shows"
       ]
     }
   ];
