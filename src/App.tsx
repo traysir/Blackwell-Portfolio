@@ -8,6 +8,7 @@ export default function Portfolio() {
   const [currentTime, setCurrentTime] = useState('');
   const [iconSurprised, setIconSurprised] = useState(false);
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
+  const [expandedEducation, setExpandedEducation] = useState<number | null>(null);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -135,6 +136,38 @@ export default function Portfolio() {
     }
   ];
 
+  const education = [
+    {
+      school: "Kennesaw State University",
+      degree: "Bachelor of Science",
+      field: "Computer Science",
+      period: "2024",
+      location: "Atlanta, GA",
+      stat: "Dean's List",
+      logo: "/logos/ksu.png",
+      highlights: [
+        "Advanced Algorithms",
+        "Cloud Computing",
+        "Ethical Hacking",
+        "Data Structures"
+      ]
+    },
+    {
+      school: "Georgia Institute of Technology",
+      degree: "Master of Science",
+      field: "Analytics",
+      period: "Pursuing",
+      location: "Atlanta, GA",
+      stat: "In Progress",
+      logo: "/logos/gatech.png",
+      highlights: [
+        "Specialized focus on data analytics and machine learning",
+        "Advanced coursework in statistical analysis and predictive modeling",
+        "Building expertise in analytics applications for business impact"
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 font-mono">
       {/* Cursor follower - original behavior */}
@@ -160,6 +193,10 @@ export default function Portfolio() {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#work" className="text-sm hover:text-emerald-600 transition-colors relative group">
                 /work
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
+              </a>
+              <a href="#education" className="text-sm hover:text-emerald-600 transition-colors relative group">
+                /education
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-900 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a href="#projects" className="text-sm hover:text-emerald-600 transition-colors relative group">
@@ -193,6 +230,7 @@ export default function Portfolio() {
           {mobileMenuOpen && (
             <div className="md:hidden mt-6 pb-6 space-y-4 border-t border-neutral-200 pt-6">
               <a href="#work" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/work</a>
+              <a href="#education" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/education</a>
               <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/projects</a>
               <a href="#skills" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/skills</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-sm hover:text-emerald-600 transition-colors">/contact</a>
@@ -339,6 +377,76 @@ console.log(bayden.specialties);
                           <li key={dutyIndex} className="flex gap-3 text-sm text-neutral-700">
                             <span className="text-emerald-600 font-bold mt-0.5">•</span>
                             <span>{duty}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="py-32 px-6 border-t border-neutral-200 bg-neutral-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 mb-4 block">Background</span>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">
+              Education
+            </h2>
+            <p className="text-neutral-600">Strong foundation in computer science and data analysis.</p>
+          </div>
+
+          <div className="space-y-1">
+            {education.map((edu, index) => (
+              <div key={index}>
+                <button
+                  onClick={() => setExpandedEducation(expandedEducation === index ? null : index)}
+                  className="w-full group border border-neutral-200 hover:border-neutral-900 transition-all duration-300 p-6 hover:bg-neutral-900 hover:text-neutral-50 text-left"
+                >
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-2">
+                        {edu.logo ? (
+                          <img 
+                            src={edu.logo} 
+                            alt={edu.school}
+                            className="h-10 w-10 object-contain grayscale group-hover:grayscale-0 group-hover:invert transition-all duration-300"
+                          />
+                        ) : (
+                          <h3 className="text-2xl font-bold">{edu.school}</h3>
+                        )}
+                        <span className="px-3 py-1 bg-emerald-100 group-hover:bg-emerald-600 text-emerald-900 group-hover:text-neutral-50 text-xs font-medium transition-colors">
+                          {edu.stat}
+                        </span>
+                      </div>
+                      <p className="text-neutral-600 group-hover:text-neutral-300">{edu.degree} in {edu.field}</p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="text-sm text-neutral-500 group-hover:text-neutral-400 font-mono text-right">
+                        <div>{edu.period}</div>
+                        <div>{edu.location}</div>
+                      </div>
+                      <ChevronDown 
+                        size={20} 
+                        className={`text-neutral-500 group-hover:text-neutral-400 transition-transform duration-300 flex-shrink-0 ${expandedEducation === index ? 'rotate-180' : ''}`}
+                      />
+                    </div>
+                  </div>
+                </button>
+                
+                {expandedEducation === index && (
+                  <div className="border border-t-0 border-neutral-200 hover:border-neutral-900 transition-all duration-300 p-6 bg-white">
+                    <div className="ml-0 md:ml-12">
+                      <h4 className="text-sm font-semibold text-neutral-900 mb-4">Highlights & Achievements:</h4>
+                      <ul className="space-y-3">
+                        {edu.highlights.map((highlight, highlightIndex) => (
+                          <li key={highlightIndex} className="flex gap-3 text-sm text-neutral-700">
+                            <span className="text-emerald-600 font-bold mt-0.5">•</span>
+                            <span>{highlight}</span>
                           </li>
                         ))}
                       </ul>
