@@ -296,7 +296,10 @@ export default function Portfolio() {
 {`const bayden = {
   role: "Data Analyst",
   location: "Atlanta, GA",
-  education: "BS CS @ KSU",
+  education: [
+    "BS CS @ KSU '24",
+    "MS Analytics @ Georgia Tech (pursuing)"
+  ],
   specialties: [
     "Data Analysis & Visualization",
     "SQL & Python Analytics", 
