@@ -264,14 +264,6 @@ export default function Portfolio() {
                 complex data into actionable insights with Python, SQL, and analytics tools.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-12">
-                <Coffee size={20} className="text-neutral-400" />
-                <span className="text-xs text-neutral-500">Data-driven decisions</span>
-                <span className="text-neutral-300">•</span>
-                <Sparkles size={20} className="text-neutral-400" />
-                <span className="text-xs text-neutral-500">Numbers tell stories</span>
-              </div>
-
               <div className="flex gap-4">
                 <a href="#projects" className="group px-6 py-3 bg-neutral-900 text-neutral-50 text-sm font-medium hover:bg-emerald-600 transition-all duration-300 flex items-center gap-2">
                   View work
