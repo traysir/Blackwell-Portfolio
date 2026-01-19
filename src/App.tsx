@@ -146,10 +146,8 @@ export default function Portfolio() {
       stat: "Dean's List",
       logo: "/logos/ksu.png",
       highlights: [
-        "Advanced Algorithms",
-        "Cloud Computing",
-        "Ethical Hacking",
-        "Data Structures"
+        "Dean's List honors",
+        "KSU Varsity Esports - Apex Legends"
       ]
     },
     {
@@ -441,7 +439,6 @@ console.log(bayden.specialties);
                 {expandedEducation === index && (
                   <div className="border border-t-0 border-neutral-200 hover:border-neutral-900 transition-all duration-300 p-6 bg-white">
                     <div className="ml-0 md:ml-12">
-                      <h4 className="text-sm font-semibold text-neutral-900 mb-4">Highlights & Achievements:</h4>
                       <ul className="space-y-3">
                         {edu.highlights.map((highlight, highlightIndex) => (
                           <li key={highlightIndex} className="flex gap-3 text-sm text-neutral-700">
