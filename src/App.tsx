@@ -557,7 +557,7 @@ console.log(bayden.specialties);
             Let's talk
           </h2>
           <p className="text-xl mb-12 opacity-80">
-            Looking for a data analyst who drives results? Let's connect.
+            Looking for results? Let's connect.
           </p>
 
           <div className="flex justify-center gap-6 mb-12">
@@ -587,7 +587,7 @@ console.log(bayden.specialties);
 
           <div className="space-y-2 text-neutral-900 font-mono text-sm">
             <p>bayden.blackwell@gmail.com</p>
-            <p>(706) 833-4143</p>
+            <p>(706)833-4143</p>
           </div>
         </div>
       </section>
@@ -599,7 +599,7 @@ console.log(bayden.specialties);
             © 2026 Bayden Blackwell — Atlanta, GA
           </p>
           <p className="text-xs text-neutral-500 font-mono">
-            Designed with intention, built with care
+            Hire Me!
           </p>
         </div>
       </footer>
