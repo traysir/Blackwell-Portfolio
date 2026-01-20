@@ -48,7 +48,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: "Augusta Pickleball Club",
-      year: "2024",
+      year: "2025",
       category: "Community & Web Development",
       description: "Founded and scaled the Augusta Pickleball Club into a thriving local league with 100+ active members. Designed and developed the official website from scratch using modern web technologies, deployed on GitHub Pages. Managed sponsorships and strategic partnerships to drive league growth and competitive tournament organization.",
       tags: ["Web Development", "Community Building", "GitHub Pages"],
