@@ -47,13 +47,13 @@ export default function Portfolio() {
   // Fixed projects array - removed duplicate, proper links
   const projects = [
     {
-      title: "College Football Analytics",
-      year: "2025",
-      category: "Data Analysis",
-      description: "EPA-based prediction system with real-time data pipeline and statistical modeling. Built interactive dashboard generating spreads, odds, and win probabilities with 85% accuracy.",
-      tags: ["Python", "Machine Learning", "Data Viz"],
-      link: "https://github.com/traysir",
-      color: "violet"
+      title: "Augusta Pickleball Club",
+      year: "2024",
+      category: "Community & Web Development",
+      description: "Founded and scaled the Augusta Pickleball Club into a thriving local league with 100+ active members. Designed and developed the official website from scratch using modern web technologies, deployed on GitHub Pages. Managed sponsorships and strategic partnerships to drive league growth and competitive tournament organization.",
+      tags: ["Web Development", "Community Building", "GitHub Pages"],
+      link: "https://augustapickleball.club/",
+      color: "orange"
     },
     {
       title: "Charity Website Management",
