@@ -313,6 +313,50 @@ console.log(bayden.specialties);
         </div>
       </section>
 
+      {/* Summary Section */}
+      <section className="py-32 px-6 border-t border-neutral-200 bg-neutral-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 mb-4 block">About</span>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
+              Multifaceted
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 border border-neutral-200 hover:border-neutral-900 hover:bg-white transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                <h3 className="text-lg font-bold">Analyst & Strategist</h3>
+              </div>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Data-driven decision making across operations and technology. Proficient in Python, SQL, Power BI, and Tableau. Proven ability to identify trends, optimize workflows, and translate insights into measurable business impact.
+              </p>
+            </div>
+
+            <div className="p-8 border border-neutral-200 hover:border-neutral-900 hover:bg-white transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
+                <h3 className="text-lg font-bold">Operations Leader</h3>
+              </div>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Managed complex operations and client portfolios at ADP and UPS. Built custom tools that doubled productivity. Strong track record in process optimization, client relationship management, and team leadership across fast-paced environments.
+              </p>
+            </div>
+
+            <div className="p-8 border border-neutral-200 hover:border-neutral-900 hover:bg-white transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                <h3 className="text-lg font-bold">Technical Problem Solver</h3>
+              </div>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Hands-on technical expertise combined with strategic thinking. Experience ranges from Linux-based systems and AWS to web development and real-time production technology. Thrives troubleshooting complex issues and implementing scalable solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Work Experience */}
       <section id="work" className="py-32 px-6 border-t border-neutral-200">
         <div className="max-w-7xl mx-auto">
