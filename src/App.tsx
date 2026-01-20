@@ -473,11 +473,6 @@ console.log(bayden.specialties);
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-all duration-500 p-12 border border-neutral-700 hover:border-emerald-500"
               >
-                {index === 3 && (
-                  <div className="absolute -right-12 top-6 w-40 bg-rose-500 text-neutral-50 text-center py-2 font-bold text-sm transform rotate-45 shadow-lg z-20">
-                    ✨ Featured Pick
-                  </div>
-                )}
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-8">
                     <span className="text-xs font-mono text-neutral-500">/{project.category.toLowerCase().replace(' ', '-')}</span>
