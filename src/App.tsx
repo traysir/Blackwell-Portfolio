@@ -362,7 +362,7 @@ console.log(bayden.specialties);
                 </button>
                 
                 {expandedJob === index && (
-                  <div className="border border-t-0 border-neutral-200 hover:border-neutral-900 transition-all duration-300 p-6 bg-neutral-50">
+                  <div className="border border-t-0 border-neutral-200 hover:border-neutral-900 transition-all duration-300 p-6 bg-neutral-50 relative">
                     <div className="ml-0 md:ml-12">
                       <h4 className="text-sm font-semibold text-neutral-900 mb-4">Responsibilities & Achievements:</h4>
                       <ul className="space-y-3">
@@ -373,6 +373,7 @@ console.log(bayden.specialties);
                           </li>
                         ))}
                       </ul>
+                      <p className="text-xs text-neutral-500 mt-6 pt-4 border-t border-neutral-200">{job.company}</p>
                     </div>
                   </div>
                 )}
@@ -442,6 +443,7 @@ console.log(bayden.specialties);
                           </li>
                         ))}
                       </ul>
+                      <p className="text-xs text-neutral-500 mt-6 pt-4 border-t border-neutral-200">{edu.school}</p>
                     </div>
                   </div>
                 )}
@@ -471,6 +473,11 @@ console.log(bayden.specialties);
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-all duration-500 p-12 border border-neutral-700 hover:border-emerald-500"
               >
+                {index === 3 && (
+                  <div className="absolute -right-12 top-6 w-40 bg-rose-500 text-neutral-50 text-center py-2 font-bold text-sm transform rotate-45 shadow-lg z-20">
+                    ✨ Featured Pick
+                  </div>
+                )}
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-8">
                     <span className="text-xs font-mono text-neutral-500">/{project.category.toLowerCase().replace(' ', '-')}</span>
