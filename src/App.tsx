@@ -65,12 +65,12 @@ export default function Portfolio() {
       color: "emerald"
     },
     {
-      title: "AWS Data Pipeline",
+      title: "Heavy Music Analytic Dashboard",
       year: "2023",
-      category: "Cloud Analytics",
-      description: "Leveraged AWS analytics tools at Amazon to identify fulfillment trends. Optimized workflows resulting in 15% efficiency improvement through data-driven insights.",
-      tags: ["AWS", "Data Analysis", "SQL"],
-      link: "https://github.com/traysir",
+      category: "Data Analysis",
+      description: "Analyzed 183,000+ metal bands across 157 countries using Encyclopaedia Metallum data. Built an interactive dashboard visualizing genre distribution, regional trends, and Spotify popularity rankings for 50 curated heavy bands. Discovered that Black Metal dominates Europe while Death Metal leads in the Americas.",
+      tags: ["Python", "Pandas", "Chart.js", "Data Visualization"],
+      link: "https://github.com/traysir/HeavyMusicData",
       color: "amber"
     },
     {
