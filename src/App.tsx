@@ -88,7 +88,7 @@ export default function Portfolio() {
 
   const experience = [
     { 
-      company: "ADP", 
+      company: "Automatic Data Processing", 
       role: "Technical Analyst", 
       period: "09/2024—Present", 
       stat: "Top Performer",
@@ -101,10 +101,10 @@ export default function Portfolio() {
       ]
     },
     { 
-      company: "UPS", 
+      company: "United Parcel Service", 
       role: "Operations Manager", 
       period: "04/2023—05/2024", 
-      stat: "+100% Data Efficiency",
+      stat: "Data Efficiency",
       logo: "/logos/ups.png",
       duties: [
         "Built and deployed custom internal tools that increased employee productivity by 100%, eliminating manual tasks and doubling output efficiency",
@@ -123,9 +123,9 @@ export default function Portfolio() {
       ]
     },
     { 
-      company: "IATSE", 
+      company: "International Alliance of Theatrical Stage Employees", 
       role: "Event Technician", 
-      period: "01/2021—04/2024", 
+      period: "01/2019—04/2024", 
       stat: "Production Technology",
       logo: "/logos/IATSE.png",
       duties: [
