@@ -528,7 +528,7 @@ console.log(bayden.specialties);
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                  <a href="https://www.freecodecamp.org/certification/fcc03004da2-0060-4ed1-806c-8c1bb1fba3d4/data-analysis-with-python-v7" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-emerald-600 transition-colors underline">
+                  <a href="https://www.freecodecamp.org/certification/fcc03004da2-0060-4ed1-806c-8c1bb1fba3d4/data-analysis-with-python-v7" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-emerald-600 transition-colors">
                     Data Analysis with Python
                   </a>
                 </div>
