@@ -303,7 +303,7 @@ export default function Portfolio() {
 };
 
 console.log(bayden.specialties);
-// Ready to analyze 📊`}
+// Ready to analyze`}
                   </pre>
                 </div>
               </div>
